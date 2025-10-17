@@ -17,7 +17,10 @@ int main() {
            
             do {
                 printf("Ingrese la calificacion para la Asignatura %d: ", j + 1);
-                scanf("%f", &calificaciones[i][j]);
+                while (scanf("%f", &calificaciones[i][j]) != 1) {
+                    printf("Entrada inválida. Por favor, ingrese solo un entero: ");
+                    while (getchar() != '\n');
+                }
                
                 if (calificaciones[i][j] < 0 || calificaciones[i][j] > 10) {
                     printf("Error: La calificacion debe estar entre 0 y 10. Intente de nuevo.\n");
